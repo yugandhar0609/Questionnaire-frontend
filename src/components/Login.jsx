@@ -9,7 +9,7 @@ const Login = () => {
   const [login, setLogin] = useState({ userName: "", password: "" });
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  
+
   const API_URL = import.meta.env.VITE_API_URL;
 
   const handleOnChange = (e) => {
@@ -30,7 +30,7 @@ const Login = () => {
         const response = await axios.post(`${API_URL}/login`, login);
         if (response.status === 200) {
           const { token, user } = response.data;
-          localStorage.setItem("token", token); 
+          localStorage.setItem("token", token);
           setUser(user);
           toast.success(response.data.message);
           setLogin({ userName: "", password: "" });
@@ -54,11 +54,14 @@ const Login = () => {
       <div className="relative min-h-screen sm:flex sm:flex-row justify-center bg-transparent rounded-3xl shadow-xl">
         <div className="flex-col flex self-center lg:px-14 sm:max-w-4xl xl:max-w-md z-10">
           <div className="self-start hidden lg:flex flex-col text-gray-300">
-            <h1 className="my-3 font-semibold text-4xl">Welcome back</h1>
-            <p className="pr-3 text-sm opacity-75">
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and visual
-              mockups
+            <h1 className="my-3 font-semibold text-4xl">
+              Welcome back to{" "}
+              <span className="my-1 font-semibold text-xl">
+                IMPULSE INFOTECH SOLUTIONS{" "}
+              </span>
+            </h1>
+            <p className="pr-2 text-sm opacity-75">
+            Impulse Technologies and Business Solutions continues to grow  ever day thanks to the confidence our clients have in us.
             </p>
           </div>
         </div>
